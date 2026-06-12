@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Cida · de Diénert</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#fbf8f1">
+<meta property="og:title" content="Para Cida ♥">
+<meta property="og:description" content="Abre com calma, do começo ao fim. É pra você.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%235f8a72' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- Lenis smooth scroll CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.css">
+
+<style>
+  :root {
+    --bg:        #fbf8f1;
+    --bg-2:      #f4efe5;
+    --bg-3:      #eae3d3;
+    --bg-deep:   #16211b;
+    --ink:       #211d18;
+    --ink-2:     #4c463e;
+    --ink-3:     #6e675c;
+    --ink-4:     #928a7c;
+    --line:      #ddd5c3;
+    --accent:    #5f8a72;
+    --accent-d:  #48705a;
+    --accent-l:  #aecbb9;
+    --terra:     #c96442;
+    --terra-l:   #e8a48a;
+    --card-sage: #a9c0b1;
+    --card-ink:  #5d4332;
+    --on-accent: #ffffff;
+    --serif:     'Fraunces', Georgia, serif;
+    --sans:      'Inter', ui-sans-serif, system-ui, sans-serif;
+    --mono:      'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: auto; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  /* Lenis */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  /* Typography */
+  h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.02em; }
+  .display {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    letter-spacing: -0.035em;
+    line-height: 0.97;
+    color: var(--ink);
+  }
+  .display em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .eyebrow.accent { color: var(--accent); }
+
+  .wrap        { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 780px;  margin: 0 auto; padding: 0 40px; }
+
+  .rule {
+    width: 48px; height: 2px;
+    background: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  section { padding: 130px 0; position: relative; }
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink-4);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  /* ===== Reveal animations ===== */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-1 { transition-delay: 0.1s; }
+  .reveal-2 { transition-delay: 0.2s; }
+  .reveal-3 { transition-delay: 0.3s; }
+  .reveal-4 { transition-delay: 0.4s; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 52px 40px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; z-index: 2;
+  }
+  .hero .brand {
+    font-family: var(--mono); font-size: 13px;
+    letter-spacing: 0.08em; color: var(--ink-2);
+  }
+  .hero .brand .dot {
+    display: inline-block; width: 8px; height: 8px;
+    background: var(--accent); border-radius: 50%;
+    margin-right: 10px; vertical-align: middle;
+  }
+  .hero .meta {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--ink-3); letter-spacing: 0.06em; white-space: nowrap;
+  }
+  .hero .center { max-width: 1100px; margin: 0 auto; width: 100%; z-index: 2; }
+  .hero h1.display { font-size: clamp(64px, 13vw, 176px); margin-bottom: 30px; }
+  .hero .lede {
+    max-width: 600px; font-size: 19px; line-height: 1.6;
+    color: var(--ink-2); margin-top: 10px;
+  }
+  .hero .scroll-hint {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
+    color: var(--ink-4); text-transform: uppercase; z-index: 2;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero .scroll-hint .line {
+    width: 36px; height: 1px; background: var(--ink-4);
+    position: relative; overflow: hidden;
+  }
+  .hero .scroll-hint .line::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--accent);
+    transform: translateX(-100%);
+    animation: scrollPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+  }
+  .blob {
+    position: absolute;
+    bottom: -220px; right: -220px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--accent-l), transparent 62%);
+    opacity: 0.45; border-radius: 50%;
+    filter: blur(40px); z-index: 0;
+    pointer-events: none;
+  }
+  .blob.b2 {
+    bottom: auto; right: auto;
+    top: -260px; left: -260px;
+    background: radial-gradient(circle, var(--terra-l), transparent 62%);
+    opacity: 0.2;
+  }
+
+  /* ===== Quote scenes ===== */
+  .scene .quote {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(27px, 4vw, 50px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 900px;
+  }
+  .scene .quote em { font-style: italic; color: var(--accent); }
+  .scene .attrib {
+    font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-top: 28px;
+  }
+
+  /* ===== "O que eu vejo" grid ===== */
+  .see-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+  .see {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+  .see .num {
+    font-family: var(--serif);
+    font-size: 64px; line-height: 1;
+    color: var(--accent); font-weight: 300;
+    margin-bottom: 16px;
+    font-variation-settings: 'opsz' 144;
+  }
+  .see h3 { font-size: 21px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .see p  { font-size: 16px; color: var(--ink-2); line-height: 1.55; margin: 0; }
+
+  /* ===== Dark shift — três palavras ===== */
+  .shift {
+    background: var(--bg-deep);
+    color: var(--bg);
+    padding: 170px 0;
+    margin: 60px 0 0;
+  }
+  .shift .eyebrow { color: rgba(255,255,255,0.5); }
+  .shift h2.display { color: var(--bg); font-size: clamp(38px, 6vw, 80px); margin-bottom: 24px; }
+  .shift h2 em { color: var(--accent-l); }
+  .shift .lede { color: rgba(251,248,241,0.72); max-width: 640px; font-size: 19px; line-height: 1.6; margin-top: 20px; }
+  .shift .nums {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px;
+    margin-top: 90px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 56px;
+  }
+  .shift .num-card .big {
+    font-family: var(--serif);
+    font-size: clamp(64px, 9vw, 124px);
+    font-weight: 300; line-height: 0.95;
+    color: var(--accent-l);
+    font-style: italic;
+    letter-spacing: -0.04em;
+    font-variation-settings: 'opsz' 144, 'WONK' 1;
+  }
+  .shift .num-card .label {
+    font-family: var(--mono); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.6); margin-top: 18px; line-height: 1.6;
+  }
+
+  /* ===== Pinned pause scene ===== */
+  .pause-pin { height: 280vh; position: relative; background: var(--bg-2); padding: 0; }
+  .pause-pin .sticky {
+    position: sticky; top: 0; height: 100vh; height: 100svh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .pause-stage { text-align: center; padding: 0 28px; max-width: 920px; }
+  .pause-line {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(30px, 5.4vw, 64px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0.35em 0;
+    opacity: 0;
+  }
+  .pause-line em { font-style: italic; color: var(--accent); font-variation-settings: 'opsz' 144, 'WONK' 1; }
+
+  /* ===== Gift pinned scene ===== */
+  .gift-pin { height: 420vh; position: relative; padding: 0; }
+  .gift-pin .sticky {
+    position: sticky; top: 0; height: 100vh; height: 100svh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    overflow: hidden;
+    padding: 24px 20px;
+    gap: 18px;
+  }
+  .gift-head { text-align: center; }
+  .gift-head .eyebrow { margin-bottom: 10px; }
+  .gift-head .display { font-size: clamp(26px, 3.6vw, 44px); }
+
+  .gift-card {
+    width: min(620px, 94vw);
+    background: var(--card-sage);
+    border-radius: 18px;
+    padding: clamp(26px, 4.5vw, 44px) clamp(22px, 5vw, 52px);
+    text-align: center;
+    color: var(--card-ink);
+    box-shadow: 0 30px 80px -30px rgba(33, 29, 24, 0.35);
+    will-change: transform;
+  }
+  .gift-card .spa {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    margin-bottom: 14px; opacity: 0.85;
+  }
+  .gift-card .spa b { font-family: var(--serif); font-size: 17px; letter-spacing: 0.04em; display: block; margin-bottom: 4px; }
+  .gift-card h3 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(34px, 6.4vw, 58px);
+    letter-spacing: 0.12em;
+    line-height: 1.05;
+    margin: 10px 0 12px;
+  }
+  .gift-card .tagline {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(15px, 2.4vw, 19px);
+    margin: 0 0 22px; opacity: 0.9;
+  }
+  .gift-card .depara {
+    display: flex; justify-content: center; gap: clamp(18px, 6vw, 56px);
+    font-size: clamp(14px, 2.4vw, 17px);
+    flex-wrap: wrap;
+  }
+  .gift-card .depara span { border-bottom: 1.5px solid var(--card-ink); padding: 0 14px 4px; }
+  .gift-card .depara b { font-weight: 700; }
+
+  .gift-panel {
+    width: min(620px, 94vw);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 26px 20px;
+    box-shadow: 0 24px 60px -30px rgba(0,0,0,0.18);
+    position: relative;
+  }
+  .gift-row {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 14px; align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    opacity: 0;
+    will-change: transform;
+  }
+  .gift-row:last-of-type { border-bottom: none; }
+  .gift-row .n {
+    font-family: var(--mono); font-size: 12px; color: var(--ink-4);
+  }
+  .gift-row .t { font-weight: 600; font-size: clamp(15px, 2.6vw, 17px); }
+  .gift-row .d { font-size: 12.5px; color: var(--ink-3); margin-top: 1px; }
+  .gift-row .check {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); color: var(--on-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+  }
+  .gift-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .gift-mins {
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .gift-mins .big {
+    font-family: var(--serif);
+    font-size: clamp(40px, 7vw, 56px);
+    font-weight: 300; line-height: 1;
+    color: var(--accent-d);
+    letter-spacing: -0.03em;
+    font-variation-settings: 'opsz' 144;
+    min-width: 2.1em;
+  }
+  .gift-mins .lbl {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-3); line-height: 1.5;
+  }
+  .date-stamp {
+    border: 2px dashed var(--terra);
+    color: var(--terra);
+    border-radius: 10px;
+    padding: 10px 16px;
+    text-align: center;
+    transform: rotate(-3deg);
+    opacity: 0;
+    will-change: transform;
+  }
+  .date-stamp .when {
+    font-family: var(--mono); font-size: clamp(13px, 2.6vw, 15px);
+    font-weight: 500; letter-spacing: 0.1em;
+  }
+  .date-stamp .badge {
+    display: inline-block; margin-top: 6px;
+    background: var(--terra); color: var(--on-accent);
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 12px;
+  }
+  .gift-foot {
+    width: min(620px, 94vw);
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.06em;
+    color: var(--ink-4);
+    line-height: 1.7;
+    opacity: 0;
+  }
+  .gift-foot b { color: var(--ink-3); }
+
+  .gift-stage {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 18px; width: 100%;
+  }
+  .gift-right {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 14px; width: min(620px, 94vw);
+  }
+  .gift-right .gift-panel { width: 100%; }
+  .gift-right .gift-foot  { width: 100%; }
+
+  /* Desktop: cartão e detalhes lado a lado */
+  @media (min-width: 1000px) {
+    .gift-pin .sticky { gap: 30px; }
+    .gift-stage { flex-direction: row; justify-content: center; align-items: center; gap: 52px; }
+    .gift-card  { width: min(500px, 44vw); }
+    .gift-right { width: min(520px, 42vw); }
+  }
+
+  /* Telas baixas (celular deitado, laptops pequenos): tudo precisa caber no viewport pinado */
+  @media (max-height: 760px) {
+    .gift-pin .sticky { gap: 10px; }
+    .gift-head .eyebrow { margin-bottom: 6px; }
+    .gift-head .display { font-size: clamp(20px, 3vw, 28px); }
+    .gift-card { padding: 16px 22px; border-radius: 14px; }
+    .gift-card .spa { margin-bottom: 8px; }
+    .gift-card h3 { font-size: clamp(24px, 4.6vw, 34px); }
+    .gift-card .tagline { font-size: 13.5px; margin: 0 0 12px; }
+    .gift-row { padding: 8px 0; }
+    .gift-mins .big { font-size: 34px; }
+    .date-stamp { padding: 7px 12px; }
+    .gift-foot { font-size: 10px; line-height: 1.55; }
+    .pause-line { font-size: clamp(24px, 4.6vw, 44px); }
+  }
+
+  /* Fallback sem animações (CDN indisponível ou JS limitado) */
+  .no-fx .reveal, .no-fx .pause-line, .no-fx .gift-row,
+  .no-fx .date-stamp, .no-fx .gift-foot {
+    opacity: 1 !important; transform: none !important;
+  }
+  .no-fx .pause-pin, .no-fx .gift-pin { height: auto; }
+  .no-fx .pause-pin .sticky, .no-fx .gift-pin .sticky {
+    position: static; height: auto; min-height: 0; padding: 90px 20px;
+  }
+
+  /* ===== Closing ===== */
+  .closing { padding: 170px 0 60px; }
+  .closing .signature {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 300;
+    color: var(--ink);
+    margin-top: 48px;
+    font-variation-settings: 'opsz' 144, 'WONK' 1;
+  }
+  .closing .ps {
+    margin-top: 56px; padding-top: 28px;
+    border-top: 1px solid var(--line);
+    font-size: 16.5px; color: var(--ink-2); line-height: 1.65;
+    max-width: 560px;
+  }
+  footer {
+    padding: 36px 20px 48px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  footer .dot { color: var(--accent); }
+
+  /* ===== Fullscreen button ===== */
+  #fs-btn {
+    position: fixed; right: 18px; bottom: 18px; z-index: 50;
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--line);
+    background: rgba(251,248,241,0.85);
+    backdrop-filter: blur(6px);
+    color: var(--ink-2);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  #fs-btn:hover { border-color: var(--accent); color: var(--accent); }
+  #fs-btn svg { width: 16px; height: 16px; }
+  #fs-btn .icon-exit { display: none; }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 860px) {
+    .wrap, .wrap-narrow { padding: 0 24px; }
+    section { padding: 96px 0; }
+    .hero { padding: 28px 24px 44px; }
+    .hero .meta { display: none; }
+    .see-grid { grid-template-columns: 1fr; gap: 26px; margin-top: 40px; }
+    .shift { padding: 120px 0; }
+    .shift .nums { grid-template-columns: 1fr; gap: 44px; margin-top: 64px; }
+    .pause-pin { height: 240vh; }
+    .gift-pin { height: 360vh; }
+    .gift-panel { padding: 14px 18px 16px; }
+    .gift-meta { justify-content: center; text-align: center; }
+    .closing { padding: 120px 0 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== -->
+<!-- HERO -->
+<!-- ============================== -->
+<section class="hero">
+  <div class="blob"></div>
+  <div class="blob b2"></div>
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>DE DIÉNERT · PARA CIDA</div>
+    <div class="meta">SEXTA · 12 JUN 2026</div>
+  </div>
+
+  <div class="center">
+    <div class="rule reveal"></div>
+    <div class="eyebrow reveal reveal-1" style="margin-bottom: 24px;">Uma mensagem · e um presente</div>
+    <h1 class="display reveal reveal-2">Cida,<br>isto é<br><em>pra você.</em></h1>
+    <p class="lede reveal reveal-3">Eu li o que você me escreveu. Li mais de uma vez, com calma, como você pediu. Antes de qualquer outra coisa, eu queria te dizer algumas coisas — devagar, do meu jeito. Rola a tela comigo.</p>
+  </div>
+
+  <div class="scroll-hint">
+    <span class="line"></span>
+    <span>Role devagar</span>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- SOBRE A MENSAGEM -->
+<!-- ============================== -->
+<section class="scene">
+  <div class="wrap-narrow">
+    <div class="rule reveal"></div>
+    <div class="section-tag reveal reveal-1">Sobre a sua mensagem</div>
+    <p class="quote reveal reveal-2">Você escreveu sobre amor, parceria, confiança, construção, futuro e pertencimento. Eu quero conversar sobre ela com você — de verdade. <em>Olho no olho, sem pressa e sem defesa.</em></p>
+    <div class="attrib reveal reveal-3">— a conversa que eu te devo, e que eu quero ter</div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- O QUE EU VEJO -->
+<!-- ============================== -->
+<section style="padding-top: 40px;">
+  <div class="wrap">
+    <div class="section-tag reveal">O que eu vejo</div>
+    <h2 class="display reveal reveal-1" style="font-size: clamp(34px, 5.6vw, 68px); max-width: 880px;">Há quase dois anos você sustenta essa família de um jeito que <em>não cabe em extrato bancário.</em></h2>
+    <p class="reveal reveal-2" style="font-size: 19px; color: var(--ink-2); line-height: 1.6; max-width: 640px; margin-top: 24px;">Esse trabalho existe, tem peso, e eu vejo. E ele é consequência de uma vida que nós dois construímos — responsabilidade nossa, não uma escolha individual sua.</p>
+
+    <div class="see-grid">
+      <div class="see reveal reveal-1">
+        <div class="num">01</div>
+        <h3>Nossa filha</h3>
+        <p>O cuidado de todos os dias: o colo, a paciência, a presença. Ela é nossa — e o tempo que você dedica a ela também é responsabilidade minha.</p>
+      </div>
+      <div class="see reveal reveal-2">
+        <div class="num">02</div>
+        <h3>Nossa casa</h3>
+        <p>A organização, a rotina, a estrutura prática. O trabalho que ninguém vê — mas sem o qual nada fica de pé.</p>
+      </div>
+      <div class="see reveal reveal-3">
+        <div class="num">03</div>
+        <h3>Nós</h3>
+        <p>A base emocional dessa família. Você segura muito mais do que parece. Eu vejo — e sou grato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- TRÊS PALAVRAS -->
+<!-- ============================== -->
+<section class="shift">
+  <div class="wrap">
+    <div class="eyebrow reveal">Antes da conversa</div>
+    <h2 class="display reveal reveal-1">Três coisas precisam<br>chegar <em>na frente.</em></h2>
+    <p class="lede reveal reveal-2">Sem rodeio e sem condição. Pra você reler quantas vezes quiser.</p>
+
+    <div class="nums">
+      <div class="num-card reveal reveal-1">
+        <div class="big">Amo.</div>
+        <div class="label">Você · sem condição</div>
+      </div>
+      <div class="num-card reveal reveal-2">
+        <div class="big">Confio.</div>
+        <div class="label">Em você · no nosso time</div>
+      </div>
+      <div class="num-card reveal reveal-3">
+        <div class="big">Escolho.</div>
+        <div class="label">Você · hoje e de novo amanhã</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- PAUSA — cena pinada -->
+<!-- ============================== -->
+<section class="pause-pin" id="pause-pin">
+  <div class="sticky">
+    <div class="pause-stage">
+      <p class="pause-line" id="pl-1">Você cuida de todo mundo.</p>
+      <p class="pause-line" id="pl-2">Da nossa filha. Da casa. De nós.</p>
+      <p class="pause-line" id="pl-3">Na terça que vem, alguém vai cuidar <em>de você.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- O PRESENTE — cena pinada -->
+<!-- ============================== -->
+<section class="gift-pin" id="gift-pin">
+  <div class="sticky">
+    <div class="gift-head">
+      <div class="eyebrow accent">O presente</div>
+      <h2 class="display">Corpo, mente <em>e alma.</em></h2>
+    </div>
+
+    <div class="gift-stage">
+    <div class="gift-card" id="gift-card">
+      <div class="spa"><b>Be O</b>Cosméticos &amp; Spa</div>
+      <h3>VALE PRESENTE</h3>
+      <p class="tagline">Um presente para cuidar de corpo, mente e alma.</p>
+      <div class="depara">
+        <span>De: <b>Diénert</b></span>
+        <span>Para: <b>Cida</b></span>
+      </div>
+    </div>
+
+    <div class="gift-right">
+    <div class="gift-panel" id="gift-panel">
+      <div class="gift-row">
+        <div class="n">01</div>
+        <div><div class="t">Esfoliação</div><div class="d">pele nova, começo novo</div></div>
+        <div class="check">✓</div>
+      </div>
+      <div class="gift-row">
+        <div class="n">02</div>
+        <div><div class="t">Banho de imersão</div><div class="d">calor, calma, silêncio</div></div>
+        <div class="check">✓</div>
+      </div>
+      <div class="gift-row">
+        <div class="n">03</div>
+        <div><div class="t">Massagem relaxante</div><div class="d">o peso sai dos ombros</div></div>
+        <div class="check">✓</div>
+      </div>
+
+      <div class="gift-meta">
+        <div class="gift-mins">
+          <div class="big" id="mins-num">0</div>
+          <div class="lbl">minutos<br>só seus</div>
+        </div>
+        <div class="date-stamp" id="date-stamp">
+          <div class="when">TERÇA · 16/06/2026 · 9H</div>
+          <div class="badge">já agendado</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gift-foot" id="gift-foot">
+      <b>Be O Cosméticos &amp; Spa</b> · @beo.cosmeticosespa · (83) 99365-8644<br>
+      Vai sem pressa — por aqui, eu cuido de tudo.
+    </div>
+    </div><!-- /gift-right -->
+    </div><!-- /gift-stage -->
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- FECHAMENTO -->
+<!-- ============================== -->
+<section class="closing scene">
+  <div class="wrap-narrow">
+    <div class="rule reveal"></div>
+    <div class="section-tag reveal reveal-1">Depois</div>
+    <p class="quote reveal reveal-2">Depois do seu dia de descanso, eu quero a nossa conversa — a de verdade. Porque a resposta pra pergunta que estava embaixo de todas as outras é: <em>eu quero construir essa vida com você.</em></p>
+    <div class="signature reveal reveal-3">— Diénert</div>
+    <p class="ps reveal reveal-4">P.S.: obrigado por ter escrito em vez de se calar. Isso também foi você lutando por nós. Eu não vou desperdiçar.</p>
+  </div>
+</section>
+
+<footer>
+  Para Cida <span class="dot">●</span> 12.06.2026 <span class="dot">●</span> com tudo que eu tenho
+</footer>
+
+<!-- Fullscreen -->
+<button id="fs-btn" aria-label="Tela cheia" title="Tela cheia (F)">
+  <svg class="icon-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+  <svg class="icon-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+  const libsOk = !!(window.gsap && window.ScrollTrigger && window.Lenis);
+  if (!libsOk) {
+    // CDN indisponível — mostra todo o conteúdo sem animações
+    document.documentElement.classList.add('no-fx');
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    const m = document.getElementById('mins-num');
+    if (m) m.textContent = '110';
+  } else {
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ============= Lenis smooth scroll =============
+  if (!reduceMotion) {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.4,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ============= Generic reveal-on-scroll =============
+  document.querySelectorAll('.reveal').forEach(el => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => el.classList.add('in'),
+    });
+  });
+
+  // ============= Hero blob parallax =============
+  gsap.to('.hero .blob', {
+    yPercent: 26,
+    xPercent: -8,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
+  });
+
+  // ============= Pausa — linhas em sequência =============
+  const pl1 = document.getElementById('pl-1');
+  const pl2 = document.getElementById('pl-2');
+  const pl3 = document.getElementById('pl-3');
+  gsap.set([pl1, pl2, pl3], { opacity: 0, y: 36 });
+
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#pause-pin',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 1,
+    }
+  })
+    .to(pl1, { opacity: 1, y: 0, duration: 1 }, 0.2)
+    .to(pl2, { opacity: 1, y: 0, duration: 1 }, 1.1)
+    .to(pl1, { opacity: 0.28, duration: 0.8 }, 1.1)
+    .to(pl3, { opacity: 1, y: 0, duration: 1 }, 2.1)
+    .to(pl2, { opacity: 0.28, duration: 0.8 }, 2.1)
+    .to({}, { duration: 0.6 });
+
+  // ============= Presente — cena pinada =============
+  const giftCard  = document.getElementById('gift-card');
+  const giftHead  = document.querySelector('.gift-head');
+  const giftPanel = document.getElementById('gift-panel');
+  const giftRows  = document.querySelectorAll('.gift-row');
+  const dateStamp = document.getElementById('date-stamp');
+  const giftFoot  = document.getElementById('gift-foot');
+  const minsEl    = document.getElementById('mins-num');
+  const minsObj   = { v: 0 };
+
+  gsap.set(giftHead,  { opacity: 0, y: 24 });
+  gsap.set(giftCard,  { opacity: 0, y: 70, scale: 0.92, rotation: -2 });
+  gsap.set(giftPanel, { opacity: 0, y: 50 });
+  gsap.set(giftRows,  { opacity: 0, x: -36 });
+  gsap.set(dateStamp, { opacity: 0, scale: 0.55, rotation: -14 });
+
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#gift-pin',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 1,
+    }
+  })
+    .to(giftHead,  { opacity: 1, y: 0, duration: 0.8 }, 0.1)
+    .to(giftCard,  { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 1.4, ease: 'power2.out' }, 0.5)
+    .to(giftPanel, { opacity: 1, y: 0, duration: 1 }, 1.7)
+    .to(giftRows[0], { opacity: 1, x: 0, duration: 0.8 }, 2.4)
+    .to(giftRows[1], { opacity: 1, x: 0, duration: 0.8 }, 2.9)
+    .to(giftRows[2], { opacity: 1, x: 0, duration: 0.8 }, 3.4)
+    .to(minsObj, {
+      v: 110, duration: 1.6, ease: 'none',
+      onUpdate: () => { minsEl.textContent = Math.round(minsObj.v); }
+    }, 3.9)
+    .to(dateStamp, { opacity: 1, scale: 1, rotation: -3, duration: 1, ease: 'back.out(1.6)' }, 4.6)
+    .to(giftFoot,  { opacity: 1, duration: 0.8 }, 5.4)
+    .to({}, { duration: 0.6 });
+
+  // ============= Refresh após fontes =============
+  if (document.fonts) {
+    document.fonts.ready.then(() => { ScrollTrigger.refresh(); });
+  }
+
+  } // fim libsOk
+
+  // ============= Fullscreen =============
+  const fsBtn = document.getElementById('fs-btn');
+  const iconEnter = fsBtn.querySelector('.icon-enter');
+  const iconExit = fsBtn.querySelector('.icon-exit');
+
+  function toggleFullscreen() {
+    const doc = document.documentElement;
+    const isFs = document.fullscreenElement || document.webkitFullscreenElement;
+    if (!isFs) {
+      const req = doc.requestFullscreen || doc.webkitRequestFullscreen;
+      if (req) { try { const p = req.call(doc); if (p && p.catch) p.catch(() => {}); } catch (e) {} }
+    } else {
+      const exit = document.exitFullscreen || document.webkitExitFullscreen;
+      if (exit) { try { const p = exit.call(document); if (p && p.catch) p.catch(() => {}); } catch (e) {} }
+    }
+  }
+  function syncFsState() {
+    const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    iconEnter.style.display = isFs ? 'none' : '';
+    iconExit.style.display = isFs ? '' : 'none';
+    ScrollTrigger.refresh();
+  }
+  fsBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', syncFsState);
+  document.addEventListener('webkitfullscreenchange', syncFsState);
+  document.addEventListener('keydown', (e) => {
+    const tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
+  });
+</script>
+
+</body>
+</html>
